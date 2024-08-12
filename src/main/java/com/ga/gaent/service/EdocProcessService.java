@@ -104,15 +104,6 @@ public class EdocProcessService {
                 edocMap.put("edocNum", edocNum);
                 edocMap.put("approver", approvers[i]);
                 edocMap.put("apprOrder", apprOrders[i]);
-                log.debug(TeamColor.YELLOW + "1차 결재:" + edocMap + TeamColor.RESET);
-                
-                // 공통으로 들어가는 결재선
-                approvalResult = edocProcessMapper.insertApprover(edocMap);
-            } else {
-                edocMap.put("edocNum", edocNum);
-                edocMap.put("approver", approvers[i]);
-                edocMap.put("apprOrder", apprOrders[i]);
-                log.debug(TeamColor.YELLOW + "1,2차 결재:" + edocMap + TeamColor.RESET);
                 
                 // 공통으로 들어가는 결재선
                 approvalResult = edocProcessMapper.insertApprover(edocMap);

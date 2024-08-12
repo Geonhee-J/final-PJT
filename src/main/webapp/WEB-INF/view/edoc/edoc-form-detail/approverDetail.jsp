@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:if test="${edocDetail.apprOrder1 == 1}">
     <div class="table-responsive text-nowrap approver-form">
-        <table class="table table-bordered">
+        <table class="table table-bordered appr-table">
             <tbody>
                 <tr>
                     <th id="edocApproverOrder" class="text-center approver-th-tag" rowspan="4">1 차</th>
@@ -39,7 +39,7 @@
 </c:if>
 <c:if test="${edocDetail.apprOrder2 == 2}">
     <div class="table-responsive text-nowrap approver-form">
-        <table class="table table-bordered">
+        <table class="table table-bordered appr-table">
             <tbody>
                 <tr>
                     <th id="edocApproverOrder" class="text-center approver-th-tag" rowspan="4">2 차</th>
