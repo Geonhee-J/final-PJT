@@ -156,8 +156,6 @@ public class EdocController {
         return "edoc/edoc-approval-list/upComing";
     }
     
-    
-    
     /*
      * @author : 조인환
      * @since : 2024. 07. 23.

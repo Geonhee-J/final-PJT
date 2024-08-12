@@ -72,7 +72,7 @@
                                                         </c:choose>
                                                         <td>
                                                             <c:choose>
-                                                                <c:when test="${app.edocStatus == '0' }">
+                                                                <c:when test="${app.edocStatus == '0'}">
                                                                     <span class="badge bg-label-info me-1">대기중</span>
                                                                 </c:when>
                                                                 <c:otherwise>

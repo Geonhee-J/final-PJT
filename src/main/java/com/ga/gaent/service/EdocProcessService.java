@@ -1,6 +1,5 @@
 package com.ga.gaent.service;
 
-import static org.hamcrest.CoreMatchers.nullValue;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -23,9 +22,13 @@ import lombok.extern.slf4j.Slf4j;
 @Transactional
 @Service
 public class EdocProcessService {
+    
     @Autowired EdocProcessMapper edocProcessMapper;
+    
     @Autowired FileUploadSetting fileUploadSetting;
+    
     @Autowired FileExtension fileExtension;
+    
     @Autowired FileMapper fileMapper;
     
     /*
@@ -41,16 +44,20 @@ public class EdocProcessService {
         
         // 공통으로 들어가는 전자결재 문서
         int edocResult = -1;
+        
         // 결재선
         int approvalResult = -1;
+        
         // 세부 폼 입력
         int insertEdocForm = -1;
         
         int fileInsertResult = -1;
         
-        int realFileInsert = -1;   // 실제 파일 static에 업로드
+        // 실제 파일 static에 업로드
+        int realFileInsert = -1;
         
-        String newFileName = null;  // 파일이름 초기화
+        // 파일이름 초기화
+        String newFileName = null;
         
         MultipartFile mf = fileReqDTO.getGaFile();
         if (!fileReqDTO.getGaFile().isEmpty()) {
@@ -79,6 +86,7 @@ public class EdocProcessService {
                 // throw new RuntimeException("데이터베이스 입력을 실패하였습니다.");
             }
          }
+        
         // 공통으로 들어가는 전자결재 문서
         edocResult = edocProcessMapper.insertEdoc(edocRequestDTO);
         
@@ -89,37 +97,41 @@ public class EdocProcessService {
         String[] approvers = edocRequestDTO.getApprover();
         String[] apprOrders = edocRequestDTO.getApprOrder();
         
-        
+        Map<String, Object> edocMap = new HashMap<>();
         
         for(int i = 0; i < approvers.length; i++) {
-            Map<String, Object> edocMap = new HashMap<>();
-            edocMap.put("edocNum", edocNum);
-            edocMap.put("approver", approvers[i]);
-            edocMap.put("apprOrder", apprOrders[i]);
-            // 공통으로 들어가는 결재선
-            approvalResult = edocProcessMapper.insertApprover(edocMap);
+            if(approvers[i] != null && !approvers[i].equals("")) {
+                edocMap.put("edocNum", edocNum);
+                edocMap.put("approver", approvers[i]);
+                edocMap.put("apprOrder", apprOrders[i]);
+                log.debug(TeamColor.YELLOW + "1차 결재:" + edocMap + TeamColor.RESET);
+                
+                // 공통으로 들어가는 결재선
+                approvalResult = edocProcessMapper.insertApprover(edocMap);
+            } else {
+                edocMap.put("edocNum", edocNum);
+                edocMap.put("approver", approvers[i]);
+                edocMap.put("apprOrder", apprOrders[i]);
+                log.debug(TeamColor.YELLOW + "1,2차 결재:" + edocMap + TeamColor.RESET);
+                
+                // 공통으로 들어가는 결재선
+                approvalResult = edocProcessMapper.insertApprover(edocMap);
+            }
         }
         
         String edocType = edocFormTypeDTO.getEdocType();
         
-        
         if(edocType.equals("0")){
-            System.out.println("기안서 제출");
             insertEdocForm = edocProcessMapper.insertEdocDraft(edocFormTypeDTO);
         }else if(edocType.equals("1")){
-            System.out.println("휴가신청서 제출");
             insertEdocForm = edocProcessMapper.insertEdocVacation(edocFormTypeDTO);
         }else if(edocType.equals("2")){
-            System.out.println("지출결의서 제출");
             insertEdocForm = edocProcessMapper.insertEdocProject(edocFormTypeDTO);
         }else if(edocType.equals("3")){
-            System.out.println("경조사지출결의서 제출");
             insertEdocForm = edocProcessMapper.insertEdocEvent(edocFormTypeDTO);
         }else if(edocType.equals("4")){
-            System.out.println("보고서 제출");
             insertEdocForm = edocProcessMapper.insertEdocReport(edocFormTypeDTO);
         }
-        
         
         if(edocResult != 1 || insertEdocForm != 1) {
             throw new RuntimeException("전자결재 입력을 실패했습니다.");
@@ -127,10 +139,6 @@ public class EdocProcessService {
         
         return 1;
     }
-    
-    
-
-
     
     /*
      * @author : 조인환
@@ -153,23 +161,16 @@ public class EdocProcessService {
             map.put("apprStatus", "1" );
         }
         
-        
         // 남아있는 결재자 수를 확인
         int checkApprovalCnt = edocProcessMapper.checkApprovalCnt(edocNum);
-        log.debug(TeamColor.YELLOW + "결재자 수" + checkApprovalCnt + TeamColor.RESET);
         
         if(checkApprovalCnt == 1) {   // 최종결재자라면
            map.put("last", -1 );
         }
 
         int resultEdocUpdate = edocProcessMapper.updateEdocStatus(map);
-        log.debug(TeamColor.YELLOW + "Edoc테이블 업데이트 결과 :  " + resultEdocUpdate + TeamColor.RESET);
-        
-        // 에러
-        log.debug(TeamColor.GREEN_BG + empCode + " & " + edocNum+ " & " + apprReason+ " & " + request  + TeamColor.RESET);
         
         int resultApprovalUpdate = edocProcessMapper.updateEdocApprovalStatus(map); // 결재선테이블
-        log.debug(TeamColor.YELLOW + "결재선 테이블 업데이트 결과 :" + resultApprovalUpdate + TeamColor.RESET);
         
         // 변경이 되지 않았으면
         if(resultEdocUpdate != 1 || resultApprovalUpdate != 1) {

@@ -14,13 +14,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         
         /* 업로드 파일 불러오기, 배포 후 */
-        registry.addResourceHandler("/upload/**")
-                .addResourceLocations("file:/home/ubuntu/upload/");
+        /*
+         * registry.addResourceHandler("/upload/**") .addResourceLocations("file:/home/ubuntu/upload/");
+         */
 
         /* 업로드 파일 불러오기, 배포 전 */
-        /*
-         * registry.addResourceHandler("/upload/**") .addResourceLocations("classpath:/static/upload/");
-         */
+        registry.addResourceHandler("/upload/**")
+        .addResourceLocations("classpath:/static/upload/");
         
         /* "/assets/**"로 호출하는 자원은 "/static/assets/"폴더 아래에서 찾는다. */
         registry.addResourceHandler("/assets/**")

@@ -21,11 +21,18 @@
                 </div>
                 <div class="card-body-edoc">
                     <c:set var="title" value="${fn:trim(el.edocTitle)}"/>
-                        <c:if test="${title.length() > 12}">
-                            <h5 class="card-title fw-semibold d-inline-block text-truncate">
-                                ${title.substring(0, 12)}...
-                            </h5>
-                        </c:if>
+                        <c:choose>
+                            <c:when test="${title.length() > 12}">
+                                <h5 class="card-title fw-semibold d-inline-block text-truncate">
+                                    ${title.substring(0, 12)}...
+                                </h5>
+                            </c:when>
+                            <c:otherwise>
+                                <h5 class="card-title fw-semibold d-inline-block text-truncate">
+                                    ${title}
+                                </h5>
+                            </c:otherwise>
+                        </c:choose>
                     <div class="card-text">
                         <small>기안자</small> <small>${el.korName}</small>
                     </div>

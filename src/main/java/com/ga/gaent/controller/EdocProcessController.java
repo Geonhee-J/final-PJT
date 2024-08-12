@@ -40,10 +40,7 @@ public class EdocProcessController {
             fileReqDTO.validateFileType();
         }
         
-        
         int result = edocProcessService.insertEdoc(edocRequestDTO, edocFormTypeDTO, fileReqDTO);
-        
-        
         
         String fail = "결재 요청에 실패하셨습니다.";
         String pass = "결재 요청에 성공하셨습니다.";

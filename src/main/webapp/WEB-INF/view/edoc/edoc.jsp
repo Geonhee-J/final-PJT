@@ -150,7 +150,8 @@
                                                     <td id="edocApprovalDate1" class="small text-center approver-td-tag">결재일</td>
                                                 </tr>
                                             </table>
-                                            <input type="hidden" name="approver" id="hiddenEdocApprover1"> <input type="hidden" name="apprOrder" id="hiddenEdocApproverOrder1" value="1">
+                                            <input type="hidden" name="approver" id="hiddenEdocApprover1">
+                                            <input type="hidden" name="apprOrder" id="hiddenEdocApproverOrder1" value="1">
                                         </div>
                                     </div>
                                     <div id="edoc-approver-two" class="me-2" style="display: none;">
@@ -167,7 +168,8 @@
                                                     <td id="edocApprovalDate2" class="small text-center approver-td-tag">결재일</td>
                                                 </tr>
                                             </table>
-                                            <input type="hidden" name="approver" id="hiddenEdocApprover2"> <input type="hidden" name="apprOrder" id="hiddenEdocApproverOrder2" value="2">
+                                            <input type="hidden" name="approver" id="hiddenEdocApprover2">
+                                            <input type="hidden" name="apprOrder" id="hiddenEdocApproverOrder2" value="2">
                                         </div>
                                     </div>
                                 </div>
@@ -343,27 +345,30 @@
                     alert('1차 결재자를 선택해주세요.');
                     return;
                 }
+                
+                let firstName = $('#firstName').val();
+                let firstRankName = firstName.slice(-2, firstName.length);
+                let firstEmpCode = $('#firstEmpCode').val();
 
-                let firstRank = $('#firstName').val();
-                let firstRankName = firstRank.slice(-2, firstRank.length);
-
-                let secondRank = $('#secondName').val();
-                let secondRankName = secondRank.slice(-2, secondRank.length);
+                let secondName = $('#secondName').val();
+                let secondRankName = secondName.slice(-2, secondName.length);
+                let secondEmpCode = $('#secondEmpCode').val();
 
                 // 1차 결재자 값 설정
                 $('#edoc-approver-one').show();
                 $('#edocRankCode1').text(firstRankName);
-                $('#edocKorName1').text($('#firstName').val());
-                $('#hiddenEdocApprover1').val($('#firstEmpCode').val());
+                $('#edocKorName1').text(firstName);
+                $('#hiddenEdocApprover1').val(firstEmpCode);
 
                 // 2차 결재자 값 설정
                 if($('#secondEmpCode').val()) {
                     $('#edoc-approver-two').show();
                     $('#edocRankCode2').text(secondRankName);
-                    $('#edocKorName2').text($('#secondName').val());
-                    $('#hiddenEdocApprover2').val($('#secondEmpCode').val());
+                    $('#edocKorName2').text(secondName);
+                    $('#hiddenEdocApprover2').val(secondEmpCode);
                 } else {
                     $('#edoc-approver-two').hide();
+                    $('#hiddenEdocApprover2').val('');
                 }
 
                 // 모달 닫기
@@ -399,21 +404,21 @@
                     let title = '';
 
                     switch(edocType) {
-                    case '0':
-                        title = '기안서';
-                        break;
-                    case '1':
-                        title = '휴가신청서';
-                        break;
-                    case '2':
-                        title = '지출결의서';
-                        break;
-                    case '3':
-                        title = '경조사 지출결의서';
-                        break;
-                    case '4':
-                        title = '보고서';
-                        break;
+                        case '0':
+                            title = '기안서';
+                            break;
+                        case '1':
+                            title = '휴가신청서';
+                            break;
+                        case '2':
+                            title = '지출결의서';
+                            break;
+                        case '3':
+                            title = '경조사 지출결의서';
+                            break;
+                        case '4':
+                            title = '보고서';
+                            break;
                     }
 
                     $.ajax({
