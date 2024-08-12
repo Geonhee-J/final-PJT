@@ -24,7 +24,7 @@
 <br>
 
 ## :world_map: ERD
-<img src="https://github.com/user-attachments/assets/54f28eb6-5290-46c6-ab0f-107b04f63ac7" width="800" height="400">
+<img src="https://github.com/user-attachments/assets/fae141f4-3fbd-4cfb-a6b1-7d9db95d615b" width="800" height="400">
 <br>
 <br>
 
