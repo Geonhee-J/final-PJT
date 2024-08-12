@@ -12,14 +12,14 @@
 ## :toolbox: 개발 환경
 |구분|사용|
 |---|---|
-|언어|Java17, JavaScript, HTML/CSS, Java, SQL|
+|언어|Java17, JavaScript, HTML/CSS|
 |프레임워크|Spring Framework, MyBatis, Lombok|
 |라이브러리|JSTL, jQuery, BootStrap5, Chart.js|
 |API|FullCalendar, jsTree, Naver News API, Toss API, DAUM Postcode API|
 |데이터베이스|MariaDB|
 |서버|Apache Tomcat10|
-|운영체제|Mac, Windows|
 |도구|STS4, Heidi SQL, Sequel Ace, Github Desktop, Notion, Figma|
+|운영체제|Mac, Windows|
 <br>
 <br>
 
