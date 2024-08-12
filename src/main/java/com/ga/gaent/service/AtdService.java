@@ -118,7 +118,8 @@ public class AtdService {
         // 퇴근을 누르지 않은 사람들 18시로 자동등록
         int autoGetOffWorkSuccess = atdMapper.autoGetOffWork(); 
         // 출근하지 않은 사람들 NULL로 자동등록
-        int autoGetInSuccess = atdMapper.autoRegisterAtd();
+        int autoGetInSuccess = 1;
+        /* int autoGetInSuccess = atdMapper.autoRegisterAtd(); */
         
             
         log.debug(TeamColor.RED + "퇴근 자동 입력: " + autoGetOffWorkSuccess + TeamColor.RESET);
