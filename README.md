@@ -24,7 +24,7 @@
 <br>
 
 ## :world_map: ERD
-<img src="https://github.com/user-attachments/assets/fae141f4-3fbd-4cfb-a6b1-7d9db95d615b" width="800" height="400">
+<img width="1680" alt="ERD" src="https://github.com/user-attachments/assets/fae141f4-3fbd-4cfb-a6b1-7d9db95d615b">
 <br>
 <br>
 
@@ -34,14 +34,34 @@
 <br>
 
 ## :camera: 구현 기능 소개
+<img width="1680" alt="로그인" src="https://github.com/user-attachments/assets/529ce20c-9b3a-42ef-9d46-2187a691ffda"><br>
+### 로그인:
+- 내용
+
 <img width="1680" alt="메인페이지" src="https://github.com/user-attachments/assets/e050592f-5dfb-4380-8cd3-0b5f87e5a545"><br>
-<img width="1680" alt="직원조회, 상세보기" src="https://github.com/user-attachments/assets/7cb90cbd-35ee-4e03-836a-f3d7d5682412"><br>
+### 메인페이지:
+- 내용
+
 <img width="1680" alt="직원조회" src="https://github.com/user-attachments/assets/f3b92260-e2af-4685-9a71-1634bbcaa5fb"><br>
+### 직원조회:
+- 내용
+
 <img width="1680" alt="전자결재, 새결재진행" src="https://github.com/user-attachments/assets/99294726-f34e-4bd4-839b-5a64785076a8"><br>
-<img width="1680" alt="전자결재, 결재상세보기" src="https://github.com/user-attachments/assets/26bd5d71-de88-4b63-b129-85e78f06342f"><br>
-<img width="1680" alt="전자결재" src="https://github.com/user-attachments/assets/cfa50f45-bdfd-4c93-a44d-6395149a1efc"><br>
+### 전자결재:
+
+- 내용
+
 <img width="1680" alt="인사관리, 직원등록" src="https://github.com/user-attachments/assets/829392cb-f505-4b79-8910-79ea130bb325"><br>
-<img width="1680" alt="소통공간, 상세보기" src="https://github.com/user-attachments/assets/a63e4b70-e201-46f6-b791-6ae558074be1"><br>
+### 인사관리:
+- 내용
+
 <img width="1680" alt="소통공간, 게시글작성" src="https://github.com/user-attachments/assets/14b6b115-0e3a-4d2c-aab2-3ef15ce72e6a"><br>
+### 소통공간:
+- 내용
+
+<img width="1680" alt="마이페이지" src="https://github.com/user-attachments/assets/b0ca713c-5c39-48ad-bea7-5f45c9e59eb4"><br>
+### 마이페이지:
+- 내용
+
 <br>
 <br>
