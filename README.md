@@ -36,32 +36,34 @@
 ## :camera: 구현 기능 소개
 <img width="1680" alt="로그인" src="https://github.com/user-attachments/assets/529ce20c-9b3a-42ef-9d46-2187a691ffda"><br>
 ### 로그인:
-- 내용
-
+- 로그인, 아이디 찾기, 비밀번호 찾기(성공시 비밀번호 재설정으로 이동) 기능 구현
+<br>
 <img width="1680" alt="메인페이지" src="https://github.com/user-attachments/assets/e050592f-5dfb-4380-8cd3-0b5f87e5a545"><br>
 ### 메인페이지:
-- 내용
-
+- 공통으로 사용하는 헤더, 사이드바 및 페이지 레이아웃 구성
+- 쪽지함, 공지사항 페이징을 비동기 통신으로 페이지 이동 없이 조회 가능
+<br>
 <img width="1680" alt="직원조회" src="https://github.com/user-attachments/assets/f3b92260-e2af-4685-9a71-1634bbcaa5fb"><br>
 ### 직원조회:
-- 내용
-
+- 직원 전체 리스트, 상세정보 출력과 이름으로 검색 기능 구현
+<br>
 <img width="1680" alt="전자결재, 새결재진행" src="https://github.com/user-attachments/assets/99294726-f34e-4bd4-839b-5a64785076a8"><br>
 ### 전자결재:
-
-- 내용
-
-<img width="1680" alt="인사관리, 직원등록" src="https://github.com/user-attachments/assets/829392cb-f505-4b79-8910-79ea130bb325"><br>
-### 인사관리:
-- 내용
-
+- 전자결재 문서 작성 구조 설계
+- 드롭박스 선택시 비동기 통신으로 페이지 이동 없이 문서 양식 출력
+- 결재선 추가 기능 구현
+<br>
 <img width="1680" alt="소통공간, 게시글작성" src="https://github.com/user-attachments/assets/14b6b115-0e3a-4d2c-aab2-3ef15ce72e6a"><br>
 ### 소통공간:
-- 내용
-
+- 게시글 작성은 별도의 페이지 이동 없이 모달 구현
+- 권한에 따라 공지사항, 자유게시판 카테고리 선택 가능
+<br>
+<img width="1680" alt="인사관리, 직원등록" src="https://github.com/user-attachments/assets/829392cb-f505-4b79-8910-79ea130bb325"><br>
+### 인사관리:
+- 직원 등록시 아이디 중복 검사 기능, 주소 입력시 우편번호 검색 기능 추가
+<br>
 <img width="1680" alt="마이페이지" src="https://github.com/user-attachments/assets/b0ca713c-5c39-48ad-bea7-5f45c9e59eb4"><br>
 ### 마이페이지:
-- 내용
-
+- 프로필 이미지, 아아디, 비밀번호 등 개인정보 변경 가능
 <br>
 <br>
