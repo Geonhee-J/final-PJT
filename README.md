@@ -24,8 +24,15 @@
 <br>
 
 ## :world_map: ERD
-<img width="1680" alt="ERD" src="https://github.com/user-attachments/assets/fae141f4-3fbd-4cfb-a6b1-7d9db95d615b">
+<img width="1680" alt="ERD" src="https://github.com/user-attachments/assets/fae141f4-3fbd-4cfb-a6b1-7d9db95d615b"><br>
+### ERD:
+- 27개의 테이블과 크게 전자결재, 인사관리(직원 및 부서정보), 소통공간(게시판), 쪽지, 캘린더로 5개로 구분<br>
 <br>
+
+<img width="1680" alt="ERD" src="https://github.com/user-attachments/assets/054a7245-75d1-412c-989a-88d36be73b1d"><br>
+### 전자결재 파트:
+- 전자문서 테이블을 기준으로 전자문서 일련번호를 참조하는 결재선과 각 문서들이 있음<br>
+- 문서들의 양식을 관리하는 문서양식 타입 테이블, 첨부파일을 관리하는 첨부파일 테이블이 있음<br>
 <br>
 
 ## :mag: 담당 기능
