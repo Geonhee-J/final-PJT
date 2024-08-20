@@ -32,7 +32,7 @@ public class LoginController {
     public String loginCheck(LoginRequestDTO loginRequestDTO, HttpSession session, RedirectAttributes redirectAttributes) {
         
         Map<String, Object> loginInfo = loginService.selectLoginCheck(loginRequestDTO);
-        if( loginInfo != null) {
+        if(loginInfo != null) {
             
             // log.debug(TeamColor.BLUE_BG + "id: " + loginRequestDTO.getEmail() + " password: " + loginRequestDTO.getPassword() + TeamColor.RESET);
             log.debug(TeamColor.BLUE_BG + "loginInfo: " + loginInfo + TeamColor.RESET);

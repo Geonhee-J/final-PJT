@@ -6,6 +6,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.ga.gaent.util.LoginInterceptor;
+import com.ga.gaent.util.ManagerInterceptor;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
@@ -44,16 +45,25 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }
     
     /*
-     * @author : 조인환
+     * @author : 조인환, 정건희
      * @since : 2024. 07. 19.
-     * Description : 로그인 인증 분기 인터셉터
+     * Description : 인증 분기 인터셉터
      */
     @Autowired LoginInterceptor loginInterceptor;
+    
+    @Autowired ManagerInterceptor managerInterceptor;
+    
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        
         registry.addInterceptor(loginInterceptor)
         .addPathPatterns("/**")
         .excludePathPatterns("/login","/notLogin","/findId","/findPw","/resetPw", "/static/**", "/assets/**", "/fonts/**", "/js/**", "/libs/**", "/scss/**" , "/upload/**");
+        
+        registry.addInterceptor(managerInterceptor)
+        .addPathPatterns("/hr", "/team/**")
+        .excludePathPatterns("/login","/notLogin","/findId","/findPw","/resetPw", "/static/**", "/assets/**", "/fonts/**", "/js/**", "/libs/**", "/scss/**" , "/upload/**");
+        
         WebMvcConfigurer.super.addInterceptors(registry);
     }
 }

@@ -51,5 +51,30 @@
                 </div>
             </div>
         </div>
+        <div id="checkManagerModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="checkLoginModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <!-- Modal content-->
+                    <div id="message" class="modal-content text-white">
+                        <div class="modal-header">
+                            <h4 class="modal-title">${message}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>${checkManagerMessage}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                <!-- Modal content-->
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                if(${!empty message}){
+                    $("#message").attr("class", "modal-content");
+                    $("#checkManagerModal").modal("show");
+                };
+            });
+        </script>
     </body>
 </html>

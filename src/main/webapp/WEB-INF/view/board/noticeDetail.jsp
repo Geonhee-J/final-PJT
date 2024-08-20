@@ -49,12 +49,6 @@
                 <!-- 삭제 버튼 모달 끝 -->
               </div>
             </c:when>
-            <c:otherwise>
-              <div class="mb-3 w-100 d-flex justify-content-end">
-                <button class="btn btn-sm btn-secondary me-2" disabled>수정</button>
-                <button class="btn btn-sm btn-secondary" disabled>삭제</button>
-              </div>
-            </c:otherwise>
           </c:choose>
           <div>
             <div class="card board-detail">

@@ -32,13 +32,19 @@ public class HRController {
     
     @Autowired private InquiryService inquiryService;
     
-    
     @Autowired private FileUploadSetting fileUploadSetting;
     
     // 세션에서 로그인한사람의 empCode추출
     private String getEmpCode(HttpSession session) {
         Map<String, Object> loginInfo = (Map<String, Object>) (session.getAttribute("loginInfo"));
         return (String) loginInfo.get("empCode");
+    }
+    
+    @GetMapping("/notManager")
+    public String notManager(RedirectAttributes rattr) {
+        rattr.addFlashAttribute("message", "접속 실패 메시지.");
+        rattr.addFlashAttribute("checkManagerMessage", "해당 유저에는 접속 권한이 없습니다.");
+        return "redirect:/home";
     }
 
     /*
